@@ -1445,7 +1445,8 @@ fn on_exit_media(context: &mut CompileContext) {
 
     if !is_in_image {
         if media.image {
-            context.push("<img src=\"");
+            context.push("<div class=\"w-100 d-flex justify-content-center\">");
+            context.push("<img class=\"border rounded\" src=\"");
         } else {
             context.push("<a href=\"");
         }
@@ -1512,6 +1513,10 @@ fn on_exit_media(context: &mut CompileContext) {
         if !is_in_image {
             context.push("</a>");
         }
+    }
+
+    if media.image {
+        context.push("</div>");
     }
 }
 
